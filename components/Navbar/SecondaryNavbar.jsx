@@ -11,7 +11,7 @@ import { createPortal } from 'react-dom'
 import SearchOption from '../SearchOption'
 import TopBar from './TopBar'
 
-const SecondaryNavbar = () => {
+const SecondaryNavbar = ({ setPopup }) => {
   const pathname = usePathname()
   const [showSearch, setShowSearch] = useState(false)
   const [innerMobileMenu, setInnerMobileMenu] = useState(false)
@@ -116,9 +116,9 @@ const SecondaryNavbar = () => {
               </button>
             </li> */}
             <li className="max-lg:hidden">
-              <Link href="/request-demo" className="btn btn-navbar btn-sm">
+              <a href="#" onClick={() => setPopup(true)} className="btn btn-navbar btn-sm">
                 Get In Touch
-              </Link>
+              </a>
             </li>
             <li className="max-lg:inline-block lg:hidden ">
               <button
