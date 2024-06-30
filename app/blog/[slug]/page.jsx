@@ -1,21 +1,47 @@
+'use client'
 import PageHero from '@/components/heros/PageHero'
-import getMarkDownContent from '@/utils/getMarkDownContent'
-import getMarkDownData from '@/utils/getMarkDownData'
+// import getMarkDownContent from '@/utils/getMarkDownContent'
+// import getMarkDownData from '@/utils/getMarkDownData'
 import Image from 'next/image'
-import ReactMarkdown from 'react-markdown'
+// import ReactMarkdown from 'react-markdown'
+import { client } from '../../../sanity/lib/client'
+import React, { useEffect, useState } from 'react'
 
-export async function generateStaticParams() {
-  const blogs = getMarkDownData('data/blogs')
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }))
+async function getPost(slug) {
+  const query = `
+    *[_type=="blog" && slug.current=="${slug}"]{
+  
+    title,
+    slug,
+    description,
+    mainImage{
+      asset->{
+        _id,
+        url
+      }
+    },
+    category,
+    content,
+    author,
+    date,
+    tags,
+  } 
+  `
+
+  const response = await client.fetch(query)
+  return response[0]
 }
-
 const BlogDetails = (props) => {
-  const dataFolder = 'data/blogs/'
-  const slug = props.params.slug
-  const blog = getMarkDownContent(dataFolder, slug)
-  const postParams = blog.data
+  const [post, setPost] = React.useState(null)
+  const pathName = usePathname()
+  const slug = pathName.split('/')[2]
+
+  useEffect(() => {
+    getPost(slug).then((data) => {
+      setPost(data)
+    })
+  }, [])
+
   return (
     <>
       <PageHero subtitle="BLOG Details" title="Recent blogs created <br/> by aplio" />
@@ -30,7 +56,7 @@ const BlogDetails = (props) => {
 
           <div className="mb-16 overflow-hidden rounded-medium bg-white p-2.5 shadow-box dark:bg-dark-200 max-md:h-[400px]">
             <Image
-              src={postParams.featureImage}
+              src={post.mainImage || ''}
               alt="about images"
               className="w-full rounded  max-md:h-full max-md:object-cover max-md:object-center"
               width={1000}
@@ -38,19 +64,19 @@ const BlogDetails = (props) => {
             />
           </div>
           <div className="blog-details">
-            <h2>{postParams.title}</h2>
+            <h2>{post.title}</h2>
             <div className="mb-12 flex items-center gap-x-2 ">
-              <p>{postParams.author}</p>
+              <p>{post.author}</p>
               <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 5 6" fill="none">
                   <circle cx="2.5" cy="3" r="2.5" fill="" className="fill-[#D8DBD0] dark:fill-[#3B3C39]" />
                 </svg>
               </span>
-              <p>{postParams.date}</p>
+              <p>{new Date(post?.date).toDateString()}</p>
             </div>
           </div>
           <div className="blog-details-body">
-            <ReactMarkdown>{blog.content}</ReactMarkdown>
+            <p>{post.content}</p>
           </div>
         </div>
       </article>

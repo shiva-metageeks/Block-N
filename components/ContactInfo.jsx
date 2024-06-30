@@ -34,7 +34,7 @@ const ContactInfo = () => {
                   />
                 </svg>
                 <h3 className="mb-2.5">Our Address</h3>
-                <p>2464 Royal Ln. Mesa, New Jersey 45463</p>
+                <p> Unit IH-00-01-02-OF-01, Level 02, Innovation One, Dubai International Financial Centre</p>
               </div>
             </motion.div>
 
@@ -58,7 +58,7 @@ const ContactInfo = () => {
                   />
                 </svg>
                 <h3 className="mb-2.5">Email Us</h3>
-                <Link href="mailto:hallo@aplio.com"> hallo@aplio.com </Link>
+                <Link href="mailto:Info@blockn.ae"> Info@blockn.ae </Link>
               </div>
             </motion.div>
 
@@ -93,7 +93,7 @@ const ContactInfo = () => {
                   />
                 </svg>
                 <h3 className="mb-2.5">Call Us</h3>
-                <Link href="tel:+391(0)355684593">+391 (0)35 2568 4593</Link>
+                <Link href="tel:+971525633307">+97 1525 633 307</Link>
               </div>
             </motion.div>
           </div>

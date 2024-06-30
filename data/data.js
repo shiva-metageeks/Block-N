@@ -896,8 +896,8 @@ export const FooterData = {
   logoDark: '/images/logo-light.svg',
   footerText: 'Turpis tortor nunc sed amet et faucibus vitae morbi congue sed id mauris.',
   copyright: `${new Date().getFullYear()} Aplio. All Rights Reserved`,
-  email: 'info@example.com',
-  phone: '+3 230 705 5448',
+  email: 'Info@blockn.ae',
+  phone: '+97 1525 633 307',
   expolre: [
     {
       id: 1,
