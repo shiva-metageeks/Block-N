@@ -42,8 +42,8 @@ export const menuData = {
         },
         {
           id: 4.3,
-          title: 'Testimonials',
-          path: '/testimonial',
+          title: 'Case Studies',
+          path: '/case-studies',
           newTab: false,
         },
         {
