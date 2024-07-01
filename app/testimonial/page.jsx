@@ -1,8 +1,12 @@
+'use client'
 import Clients from '@/components/Clients'
 import NewsLetter from '@/components/NewsLetter'
 import PageHero from '@/components/heros/PageHero'
 import Pricing from '@/components/Pricing'
 import TestimonialSingle from '@/components/TestimonialSingle'
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const getCaseStudies = async (page, pageSize) => {
   const start = (page - 1) * pageSize

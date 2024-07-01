@@ -26,7 +26,7 @@ const ContactForm = ({ setPopup, showCloseButton }) => {
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
-  const router = useRouter()
+  // const router = useRouter()
 
   const [capValue, setCapValue] = useState()
   const onCaptchaChange = (value) => {

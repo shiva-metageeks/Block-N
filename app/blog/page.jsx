@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const getPost = async (page, pageSize, searchTerm = '') => {
   const start = (page - 1) * pageSize
@@ -55,10 +56,10 @@ const Blog = () => {
   const setPageNumber = (page) => {
     setPage(page)
   }
-  const handleNextPage = () => {
-    console.log(page, totalPages)
-    if (totalPages > page) setPage((prev) => prev + 1)
-  }
+  // const handleNextPage = () => {
+  //   console.log(page, totalPages)
+  //   if (totalPages > page) setPage((prev) => prev + 1)
+  // }
 
   const fetchData = async (value) => {
     const response = await getPost(page, pageSize, value ? value : '')
@@ -87,8 +88,8 @@ const Blog = () => {
               <div className="-ml-[170px] rounded-full  bg-primary-200/20 blur-[145px]  max-1xl:h-[335px] max-1xl:w-[335px] max-md:ml-0 1xl:h-[442px] 1xl:w-[442px]"></div>
             </div>
             <div className="grid grid-cols-3 gap-8 max-lg:grid-cols-2 max-md:grid-cols-1">
-              {posts.map((post) => (
-                <article className="rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200">
+              {posts.map((post, index) => (
+                <article key={index} className="rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200">
                   <div className="rounded border border-dashed border-gray-100 p-6 dark:border-borderColor-dark max-md:p-4 ">
                     <Image
                       src={post?.mainImage || ''}
@@ -99,7 +100,8 @@ const Blog = () => {
                     />
                     <div>
                       <Link href={`/blog/${post.slug.current}`} className="badge">
-                        {blogData?.tags || 'tag'}
+                        {/* {blogData?.tags || 'tag'} */}
+                        {'tag'}
                       </Link>
                       <Link href={`/blog/${post.slug.current}`} className="block">
                         <h3 className="mb-3 font-semibold leading-[1.33]">{post.title}</h3>

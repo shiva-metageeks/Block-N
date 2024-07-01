@@ -5,7 +5,8 @@ import PageHero from '@/components/heros/PageHero'
 import Image from 'next/image'
 // import ReactMarkdown from 'react-markdown'
 import { client } from '../../../sanity/lib/client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 async function getPost(slug) {
   const query = `
@@ -31,7 +32,7 @@ async function getPost(slug) {
   const response = await client.fetch(query)
   return response[0]
 }
-const BlogDetails = (props) => {
+const BlogDetails = () => {
   const [post, setPost] = React.useState(null)
   const pathName = usePathname()
   const slug = pathName.split('/')[2]
@@ -40,7 +41,7 @@ const BlogDetails = (props) => {
     getPost(slug).then((data) => {
       setPost(data)
     })
-  }, [])
+  }, [slug])
 
   return (
     <>
