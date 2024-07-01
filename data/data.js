@@ -25,107 +25,42 @@ export const menuData = {
       newTab: false,
     },
     {
-      id: 4,
-      title: 'Pages',
-      submenu: [
-        {
-          id: 4.1,
-          title: 'Team',
-          path: '/teams',
-          newTab: false,
-        },
-        {
-          id: 4.2,
-          title: 'Team details',
-          path: '/teams/1',
-          newTab: false,
-        },
-        {
-          id: 4.3,
-          title: 'Case Studies',
-          path: '/case-studies',
-          newTab: false,
-        },
-        {
-          id: 4.4,
-          title: 'Integration',
-          path: '/integration',
-          newTab: false,
-        },
-        {
-          id: 4.5,
-          title: 'FAQs',
-          path: '/faq',
-          newTab: false,
-        },
-        {
-          id: 4.6,
-          title: 'Pricing',
-          path: '/price',
-          newTab: false,
-        },
-        {
-          id: 4.7,
-          title: 'Career',
-          path: '/career',
-          newTab: false,
-        },
-        {
-          id: 4.8,
-          title: 'Career Single',
-          path: '/career/business-administrator',
-          newTab: false,
-        },
-        {
-          id: 4.9,
-          title: 'login',
-          path: '/login',
-          newTab: false,
-        },
-        {
-          id: 4.11,
-          title: 'Sign Up',
-          path: '/signup',
-          newTab: false,
-        },
-        {
-          id: 4.12,
-          title: '404',
-          path: '/not-found',
-          newTab: false,
-        },
-      ],
+      id: 3,
+      title: 'case-studies',
+      path: '/case-studies',
+      newTab: false,
     },
-    {
-      id: 5,
-      title: 'News',
-      submenu: [
-        {
-          id: 5.1,
-          title: 'blog grid',
-          path: '/blog',
-          newTab: false,
-        },
-        {
-          id: 5.2,
-          title: 'Blog list',
-          path: '/blog-list',
-          newTab: false,
-        },
-        {
-          id: 5.3,
-          title: 'Blog categories',
-          path: '/categories/Marketing',
-          newTab: false,
-        },
-        {
-          id: 5.4,
-          title: 'Blog tags',
-          path: '/tags/Benefits',
-          newTab: false,
-        },
-      ],
-    },
+
+    // {
+    //   id: 5,
+    //   title: 'News',
+    //   submenu: [
+    //     {
+    //       id: 5.1,
+    //       title: 'blog grid',
+    //       path: '/blog',
+    //       newTab: false,
+    //     },
+    //     {
+    //       id: 5.2,
+    //       title: 'Blog list',
+    //       path: '/blog-list',
+    //       newTab: false,
+    //     },
+    //     {
+    //       id: 5.3,
+    //       title: 'Blog categories',
+    //       path: '/categories/Marketing',
+    //       newTab: false,
+    //     },
+    //     {
+    //       id: 5.4,
+    //       title: 'Blog tags',
+    //       path: '/tags/Benefits',
+    //       newTab: false,
+    //     },
+    //   ],
+    // },
     {
       id: 6,
       title: 'Contact Us',
