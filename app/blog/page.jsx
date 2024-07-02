@@ -1,6 +1,6 @@
 'use client'
 
-import PageHero from '@/components/heros/PageHero'
+import PageHero from '../../components/heros/PageHero'
 import { client } from '../../sanity/lib/client'
 import { useEffect, useState } from 'react'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'

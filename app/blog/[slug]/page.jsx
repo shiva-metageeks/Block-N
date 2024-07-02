@@ -1,14 +1,12 @@
 'use client'
-import PageHero from '@/components/heros/PageHero'
-// import getMarkDownContent from '@/utils/getMarkDownContent'
-// import getMarkDownData from '@/utils/getMarkDownData'
-import Image from 'next/image'
-import ReactMarkdown from 'react-markdown'
-import { client } from '../../../sanity/lib/client'
-import React, { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import PageHero from '../../../components/heros/PageHero'
+import { slugify } from '../../../utils/helpers'
 import { PortableText } from '@portabletext/react'
-import { slugify } from '@/utils/helpers'
+import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import React, { useEffect } from 'react'
+import { client } from '../../../sanity/lib/client'
+import {} from 
 
 async function getPost(slug) {
   const query = `
