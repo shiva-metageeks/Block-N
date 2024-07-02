@@ -31,36 +31,43 @@ export const menuData = {
       newTab: false,
     },
 
-    // {
-    //   id: 5,
-    //   title: 'News',
-    //   submenu: [
-    //     {
-    //       id: 5.1,
-    //       title: 'blog grid',
-    //       path: '/blog',
-    //       newTab: false,
-    //     },
-    //     {
-    //       id: 5.2,
-    //       title: 'Blog list',
-    //       path: '/blog-list',
-    //       newTab: false,
-    //     },
-    //     {
-    //       id: 5.3,
-    //       title: 'Blog categories',
-    //       path: '/categories/Marketing',
-    //       newTab: false,
-    //     },
-    //     {
-    //       id: 5.4,
-    //       title: 'Blog tags',
-    //       path: '/tags/Benefits',
-    //       newTab: false,
-    //     },
-    //   ],
-    // },
+    {
+      id: 5,
+      title: 'Industries',
+      path: '/industries',
+      submenu: [
+        {
+          id: 5.1,
+          title: 'Banking',
+          path: '/industries/banking',
+          newTab: false,
+        },
+        {
+          id: 5.2,
+          title: 'Insurance',
+          path: '/industries/insurance',
+          newTab: false,
+        },
+        {
+          id: 5.3,
+          title: 'Financial Services',
+          path: '/industries/financial-services',
+          newTab: false,
+        },
+        {
+          id: 5.4,
+          title: 'Healthcare',
+          path: '/industries/healthcare',
+          newTab: false,
+        },
+        {
+          id: 5.5,
+          title: 'Ed Tech',
+          path: '/industries/ed-tech',
+          newTab: false,
+        },
+      ],
+    },
     {
       id: 6,
       title: 'Contact Us',
