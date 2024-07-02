@@ -64,11 +64,11 @@ export const caseStudy = {
         },
       ],
     },
-    // {
-    //   name: 'caseStudyMetadata',
-    //   title: 'Case Study Metadata',
-    //   type: 'reference',
-    //   to: [{ type: 'metadata' }],
-    // },
+    {
+      name: 'caseStudyMetadata',
+      title: 'Case Study Metadata',
+      type: 'reference',
+      to: [{ type: 'metadata' }],
+    },
   ],
 }
