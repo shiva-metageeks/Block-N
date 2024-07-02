@@ -1,8 +1,17 @@
+'use client'
 import MembersCounter from '@/components/MembersCounter'
 import NewsLetter from '@/components/NewsLetter'
 import Pricing from '@/components/Pricing'
 import ServiceContent from '@/components/ServiceContent'
 import { ServiceData } from '@/data/data'
+import { client } from '../../../sanity/lib/client'
+import Image from 'next/image'
+import React, { useState, useEffect } from 'react'
+import { FAQData } from '@/data/data'
+import FaqItem from '@/components/FaqItem'
+import { usePathname } from 'next/navigation'
+import SVG from '@/components/FaqSvg/SVG1'
+import SVG2 from '@/components/FaqSvg/SVG2'
 
 async function getService(slug) {
   const query = `
@@ -78,9 +87,25 @@ async function getService(slug) {
   return response[0]
 }
 
-const ServiceDetails = async ({ params }) => {
-  const slug = params.slug
-  const service = await getService(slug)
+const ServiceDetails = () => {
+  const pathName = usePathname()
+  const slug = pathName.split('/')[2]
+  const [service, setService] = useState(null)
+  const [generalFaq, setGeneralFaq] = useState(FAQData)
+
+  useEffect(() => {
+    getService(slug).then((data) => {
+      setService(data)
+      setGeneralFaq(data.faq)
+    })
+  }, [slug])
+
+  const [activeIndex, setActiveIndex] = useState(null)
+
+  const handleItemClick = (index) => {
+    setActiveIndex((prevIndex) => (prevIndex === index ? null : index))
+  }
+
   return (
     <>
       {/* <ServiceContent data={data} /> */}
@@ -93,76 +118,98 @@ const ServiceDetails = async ({ params }) => {
             <div className="lg-ml-[170px] rounded-full bg-primary-200/20 blur-[145px] lg:h-[330px] lg:w-[330px] xl:h-[442px] xl:w-[442px]"></div>
           </div>
 
-          <div className="grid auto-rows-max grid-cols-12 gap-y-15 md:gap-8 lg:gap-16">
-            {/* <div className="self-start rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200 max-md:static max-md:col-span-full max-md:hidden md:sticky md:top-20 md:col-span-6 lg:col-span-4">
-              <div className="rounded border border-dashed border-gray-100 px-10 pb-7 pt-9 dark:border-borderColor-dark ">
-                <h3 className="mb-3">Categories</h3>
-                <ul className="[&>*:not(:last-child)]:border-b [&>*:not(:last-child)]:border-dashed  [&>*:not(:last-child)]:border-gray-100  dark:[&>*:not(:last-child)]:border-borderColor-dark">
-                  {ServiceData?.map((services) => (
-                    <li className={`group ${services.slug === data.slug ? 'tabActive' : ''}`} key={services.id}>
-                      <Link
-                        className="relative flex items-center justify-between py-5 font-medium before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full before:origin-right before:scale-x-0 before:bg-paragraph before:transition-transform  before:duration-500 before:content-[''] before:hover:origin-left before:hover:scale-x-100 dark:before:bg-white"
-                        href={`/services/${services.slug}`}>
-                        {services.title}
-                        <FontAwesomeIcon icon={faAngleRight} className="hidden group-[.tabActive]:block" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+          <div className="grid auto-rows-max grid-cols-12 gap-y-15 md:gap-8 lg:gap-16"></div>
+          <div className="relative mx-auto w-[80%] max-md:col-span-full md:col-span-6 lg:col-span-8">
+            <div className="singlePage relative  max-md:mt-20">
+              <h3 className="my-5 text-center">{service?.planHeading}</h3>
+              <div className="rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200">
+                <Image
+                  // src={service.mainImage}
+                  src={''}
+                  alt="service images"
+                  className="w-full rounded"
+                  width={788}
+                  height={450}
+                />
               </div>
-            </div> */}
-            <div className="relative max-md:col-span-full md:col-span-6 lg:col-span-8">
-              <div className="singlePage relative  max-md:mt-20">
-                <h2>{service.planHeading}</h2>
-                <p>{service.service}</p>
-                <div className="rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200">
-                  <Image
-                    // src={service.mainImage}
-                    src={''}
-                    alt="service images"
-                    className="w-full rounded"
-                    width={788}
-                    height={450}
-                  />
+              <p>{service?.paragraph}</p>
+              <div className="flex justify-between max-md:flex-col">
+                <div>
+                  <h3>Service Process</h3>
+                  <p>{service?.serviceProcess?.heading.boldText + service?.serviceProcess?.heading.text}</p>
+                  <ul>
+                    {service?.serviceProcess.process &&
+                      service?.serviceProcess.process.map((items, index) => <li key={index}> {items.heading} </li>)}
+                  </ul>
                 </div>
-
-                <h3>Service Process</h3>
-                <p>{service?.serviceProcess?.heading.boldText + service?.serviceProcess?.heading.text}</p>
-                <ul>
-                  {service?.serviceProcess.process &&
-                    service?.serviceProcess.process.map((items, index) => <li key={index}> {item.heading} </li>)}
-                </ul>
-
-                {/* <div className="relative rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200">
-                  <Image
-                    src="/images/services/video-bg.png"
-                    alt="service images"
-                    className="aspect-video w-full rounded"
-                    width={810}
-                    height={405}
-                  />
-                  <Link
-                    href=""
-                    onClick={openModal}
-                    className="absolute left-1/2 top-1/2 aspect-square w-[90px] -translate-x-1/2 -translate-y-1/2 max-md:w-15">
-                    <Image src="/images/services/play.svg" alt="play" className="rounded-full" fill={true} />
-                  </Link>
-                </div> */}
-
-                <h3>Qualifications & Requirements</h3>
-                <p>{data.serviceQualifications}</p>
-                <ul>
-                  {data.serviceQualificationsList &&
-                    data.serviceQualificationsList.map((items, index) => <li key={index}> {items.item} </li>)}
-                </ul>
+                <div>
+                  <h3>Service Feature</h3>
+                  <p>{service?.serviceFeature.heading.boldText + service?.serviceFeature.heading.text}</p>
+                  <ul>
+                    {service?.serviceFeature?.process &&
+                      service?.serviceFeature?.process?.map((items, index) => <li key={index}> {items.heading} </li>)}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
+          <h3 className="my-10">Tech Stack</h3>
+          <div className="row g-4 mb-20 flex justify-between">
+            {service?.serviceTechStack?.techStack?.map((tool, index) => (
+              <div
+                key={index}
+                className="col-lg-3 col-md-4 col-sm-6 wow animate fadeInDown"
+                data-wow-delay="200ms"
+                data-wow-duration="1500ms">
+                <div className="tools-card flex items-center gap-2">
+                  <div className="tools-icon">
+                    <img src={tool.icon} alt="" style={{ width: '22px' }} />
+                  </div>
+                  <div className="tools-name">
+                    <span> {tool.heading} </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <section className=" relative overflow-hidden  pb-[130px]   max-md:py-20">
+            {/* <div className="absolute left-1/2 top-0 max-w-[1612px] -translate-x-1/2">
+              <SVG />
+            </div>
+            <div className="absolute bottom-0 left-0 w-full">
+              <SVG2 />
+            </div> */}
+
+            <div className="container relative z-10">
+              <div className="grid grid-cols-2 gap-10 max-lg:grid-cols-1 1xl:gap-x-24 ">
+                <div>
+                  <p className="section-tagline">Faq&rsquo;s</p>
+
+                  <h2 className="mb-8">
+                    Frequently Asked <br />
+                    Question about Service
+                  </h2>
+                  <p>
+                    Neque accumsan dolor nullam commodo. Odio massa nisi ullamcorper suspendisse amet amet. Aenean
+                    suspendisse eget est pulvinar. Fames eget eget nascetur ornare
+                  </p>
+                </div>
+                <div className="[&>*:not(:last-child)]:mb-5">
+                  {generalFaq.map((faq, index) => (
+                    <FaqItem
+                      key={faq.id}
+                      question={faq.question}
+                      answer={faq.answer}
+                      isOpen={activeIndex === index}
+                      onClick={() => handleItemClick(index)}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
-      {/* <MembersCounter />
-      <Pricing spacing={'pt-150 max-md:pt-20'} />
-      <NewsLetter /> */}
     </>
   )
 }

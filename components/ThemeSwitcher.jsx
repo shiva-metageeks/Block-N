@@ -9,6 +9,7 @@ const ThemeSwitcher = () => {
   const currentTheme = theme === 'system' ? systemTheme : theme
   useEffect(() => {
     setMount(true)
+    setTheme('light')
   }, [])
 
   return mount ? (

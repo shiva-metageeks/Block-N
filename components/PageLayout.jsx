@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import GetInTouch from './GetInTouch'
+import ThemeSwitcher from './ThemeSwitcher'
 
 export default function PageLayout({ children }) {
   const pathname = usePathname()
@@ -21,6 +22,9 @@ export default function PageLayout({ children }) {
         children
       ) : (
         <Providers attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {/* <ThemeSwitcher>
+            
+          </ThemeSwitcher> */}
           <Navbar setPopup={setPopup} />
           <main>{children}</main>
           {popup ? <GetInTouch setPopup={setPopup} /> : null}
