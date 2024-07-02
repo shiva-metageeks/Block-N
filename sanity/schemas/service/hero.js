@@ -62,10 +62,7 @@ export const serviceHero = {
     {
       name: 'mainImage',
       title: 'Main Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      type: 'url',
     },
     {
       name: 'mainImageAlt',
@@ -75,10 +72,7 @@ export const serviceHero = {
     {
       name: 'faqImage',
       title: 'Faq Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      type: 'url',
     },
     {
       name: 'faqImageAlt',
@@ -125,11 +119,11 @@ export const serviceHero = {
       type: 'reference',
       to: [{ type: 'serviceTechStack' }],
     },
-    // {
-    //   name: 'ServiceMetadata',
-    //   title: 'Service Metadata',
-    //   type: 'reference',
-    //   to: [{ type: 'metadata' }],
-    // },
+    {
+      name: 'ServiceMetadata',
+      title: 'Service Metadata',
+      type: 'reference',
+      to: [{ type: 'metadata' }],
+    },
   ],
 }

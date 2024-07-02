@@ -34,7 +34,7 @@ export const menuData = {
     {
       id: 5,
       title: 'Industries',
-      path: '/industries',
+      link: '/industries',
       submenu: [
         {
           id: 5.1,
@@ -338,6 +338,38 @@ export const ServiceData = [
         item: 'Offline version available',
       },
     ],
+  },
+]
+export const ServiceDataIcons = [
+  {
+    id: 1,
+    iconLight: '/images/services/investment.svg',
+    iconDark: '/images/services/investment-dark.svg',
+  },
+  {
+    id: 2,
+    iconLight: '/images/services/sales.svg',
+    iconDark: '/images/services/sales-dark.svg',
+  },
+  {
+    id: 3,
+    iconLight: '/images/services/loan.svg',
+    iconDark: '/images/services/loan-dark.svg',
+  },
+  {
+    id: 4,
+    iconLight: '/images/services/finance.svg',
+    iconDark: '/images/services/finance-dark.svg',
+  },
+  {
+    id: 5,
+    iconLight: '/images/services/effeciency.svg',
+    iconDark: '/images/services/effeciency-dark.svg',
+  },
+  {
+    id: 6,
+    iconLight: '/images/services/fund.svg',
+    iconDark: '/images/services/fund-dark.svg',
   },
 ]
 

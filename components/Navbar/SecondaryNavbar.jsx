@@ -69,7 +69,7 @@ const SecondaryNavbar = ({ setPopup }) => {
                 ) : (
                   <>
                     <Link
-                      href="/"
+                      href={`${menuItem.link}`}
                       className="flex items-center rounded-large border border-transparent px-5 py-[5px] font-Inter text-base font-medium capitalize leading-8 text-paragraph transition-colors duration-500 hover:border-borderColor hover:bg-white hover:duration-500 dark:text-white dark:hover:border-borderColor/10 dark:hover:bg-dark-200 lg:px-4 xl:px-5">
                       {menuItem.title}
                       {menuItem.submenu.length > 0 ? (

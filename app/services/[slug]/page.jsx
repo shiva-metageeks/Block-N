@@ -4,22 +4,165 @@ import Pricing from '@/components/Pricing'
 import ServiceContent from '@/components/ServiceContent'
 import { ServiceData } from '@/data/data'
 
-export async function generateStaticParams() {
-  return ServiceData.map((item) => ({
-    slug: item.slug,
-  }))
+async function getService(slug) {
+  const query = `
+ *[_type == "serviceHero" && slug.current == "${slug}"] {
+    intoHeading,
+    paragraph,
+    planHeading,
+    heading{
+    boldText,
+      text
+    } ,
+    tags,
+    slug{
+      current
+    },
+    mainImage{
+      asset->{
+        _id,
+        url
+      }
+    },
+    mainImageAlt,
+    faqImage{
+      asset->{
+        _id,
+        url
+      }
+    },
+    faqImageAlt,
+    faq[] {
+      question,
+      answer
+    },
+    serviceProcess->{
+      subheading,
+      heading {
+        boldText,
+        text
+      },
+      extraText,
+      process[] {
+        heading,
+        description,
+        icon
+      }
+    },
+    serviceFeature->{
+      subheading,
+      heading {
+        boldText,
+        text
+      },
+      extraText,
+      process[] {
+        heading,
+        description,
+        icon
+      }
+    },
+    serviceTechStack->{
+      subheading,
+      heading,
+      techStack[] {
+        heading,
+        icon
+      }
+    }
+  }
+  `
+
+  const response = await client.fetch(query, { cache: 'no-store' })
+  // console.log(response);
+  return response[0]
 }
 
-const ServiceDetails = (props) => {
-  const slug = props.params.slug
-  const data = ServiceData.find((post) => post.slug === slug)
-
+const ServiceDetails = async ({ params }) => {
+  const slug = params.slug
+  const service = await getService(slug)
   return (
     <>
-      <ServiceContent data={data} />
-      <MembersCounter />
+      {/* <ServiceContent data={data} /> */}
+      <section className="relative pb-150 pt-[200px] max-md:overflow-hidden max-md:pb-20 max-md:pt-25">
+        <div className="absolute -top-8 left-0 right-0 h-full w-full bg-[url('/images/service-bg.png')] bg-cover bg-center bg-no-repeat opacity-70 sm:hidden"></div>
+        <div className="container relative z-10">
+          <div className="absolute left-1/2 top-52 -z-10 flex -translate-x-1/2 max-md:hidden max-md:flex-col">
+            <div className="rounded-full bg-primary-200/20 blur-[145px] lg:h-[330px] lg:w-[330px] xl:h-[442px] xl:w-[442px] "></div>
+            <div className="rounded-full bg-primary-200/25 blur-[145px] lg:-ml-[170px] lg:h-[330px] lg:w-[330px] xl:h-[442px] xl:w-[442px]"></div>
+            <div className="lg-ml-[170px] rounded-full bg-primary-200/20 blur-[145px] lg:h-[330px] lg:w-[330px] xl:h-[442px] xl:w-[442px]"></div>
+          </div>
+
+          <div className="grid auto-rows-max grid-cols-12 gap-y-15 md:gap-8 lg:gap-16">
+            {/* <div className="self-start rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200 max-md:static max-md:col-span-full max-md:hidden md:sticky md:top-20 md:col-span-6 lg:col-span-4">
+              <div className="rounded border border-dashed border-gray-100 px-10 pb-7 pt-9 dark:border-borderColor-dark ">
+                <h3 className="mb-3">Categories</h3>
+                <ul className="[&>*:not(:last-child)]:border-b [&>*:not(:last-child)]:border-dashed  [&>*:not(:last-child)]:border-gray-100  dark:[&>*:not(:last-child)]:border-borderColor-dark">
+                  {ServiceData?.map((services) => (
+                    <li className={`group ${services.slug === data.slug ? 'tabActive' : ''}`} key={services.id}>
+                      <Link
+                        className="relative flex items-center justify-between py-5 font-medium before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full before:origin-right before:scale-x-0 before:bg-paragraph before:transition-transform  before:duration-500 before:content-[''] before:hover:origin-left before:hover:scale-x-100 dark:before:bg-white"
+                        href={`/services/${services.slug}`}>
+                        {services.title}
+                        <FontAwesomeIcon icon={faAngleRight} className="hidden group-[.tabActive]:block" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div> */}
+            <div className="relative max-md:col-span-full md:col-span-6 lg:col-span-8">
+              <div className="singlePage relative  max-md:mt-20">
+                <h2>{service.planHeading}</h2>
+                <p>{service.service}</p>
+                <div className="rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200">
+                  <Image
+                    // src={service.mainImage}
+                    src={''}
+                    alt="service images"
+                    className="w-full rounded"
+                    width={788}
+                    height={450}
+                  />
+                </div>
+
+                <h3>Service Process</h3>
+                <p>{service?.serviceProcess?.heading.boldText + service?.serviceProcess?.heading.text}</p>
+                <ul>
+                  {service?.serviceProcess.process &&
+                    service?.serviceProcess.process.map((items, index) => <li key={index}> {item.heading} </li>)}
+                </ul>
+
+                {/* <div className="relative rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200">
+                  <Image
+                    src="/images/services/video-bg.png"
+                    alt="service images"
+                    className="aspect-video w-full rounded"
+                    width={810}
+                    height={405}
+                  />
+                  <Link
+                    href=""
+                    onClick={openModal}
+                    className="absolute left-1/2 top-1/2 aspect-square w-[90px] -translate-x-1/2 -translate-y-1/2 max-md:w-15">
+                    <Image src="/images/services/play.svg" alt="play" className="rounded-full" fill={true} />
+                  </Link>
+                </div> */}
+
+                <h3>Qualifications & Requirements</h3>
+                <p>{data.serviceQualifications}</p>
+                <ul>
+                  {data.serviceQualificationsList &&
+                    data.serviceQualificationsList.map((items, index) => <li key={index}> {items.item} </li>)}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <MembersCounter />
       <Pricing spacing={'pt-150 max-md:pt-20'} />
-      <NewsLetter />
+      <NewsLetter /> */}
     </>
   )
 }
