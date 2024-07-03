@@ -1,6 +1,7 @@
 import '../scss/theme.scss'
 import PageLayout from '../components/PageLayout'
 import { Inter, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
+import Script from 'next/script'
 
 const inter = Inter({
   weight: ['200', '300', '400', '500', '600', '700', '800'],
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
         className={` relative overflow-x-hidden  bg-white text-base antialiased dark:bg-dark-300 ${inter.variable} ${jakarta_sans.variable} ${playfair.variable}`}>
         <PageLayout>{children}</PageLayout>
       </body>
+      <Script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js"></Script>
     </html>
   )
 }

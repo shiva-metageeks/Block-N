@@ -17,6 +17,29 @@ const Footer = () => {
               height={29}
             />
             <p className="max-w-[350px] max-lg:mx-auto">{FooterData.footerText}</p>
+            <div className="mt-3 flex items-center justify-start gap-3">
+              <div
+                style={{ width: '150px' }}
+                className="clutch-widget block"
+                data-url="https://widget.clutch.co"
+                data-widget-type="1"
+                data-height="40"
+                data-nofollow="true"
+                data-expandifr="true"
+                data-scale="100"
+                data-clutchcompany-id="2251045"></div>
+
+              <div>
+                <a target="_blank" href="https://www.goodfirms.co/company/metageeks-technologies-pvt-ltd">
+                  <img
+                    style={{ width: '80px' }}
+                    src="https://assets.goodfirms.co/badges/color-badge/artificial-intelligence.svg"
+                    title=" Company"
+                    alt=" Company"
+                  />
+                </a>
+              </div>
+            </div>
           </div>
           <div className="col-span-12 max-lg:text-center lg:col-span-2">
             <h3 className="mb-8 text-lg font-medium">Explore</h3>
