@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+.rhc-banner {
+  height: 110px;
+}
+
+.rhc-banner::before {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 110px;
+  left: 0;
+  z-index: -50;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  overflow: hidden;
+  content: '';
+}
 .overlay {
   position: relative;
   top: 0;
