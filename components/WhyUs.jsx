@@ -23,8 +23,8 @@ import {
   fadeFromLeftAnimation3,
   fadeFromRightAnimation,
   fadeUpAnimation,
-} from '@/data/animation'
-import useWhileInView from '@/hooks/useWhileInView'
+} from '../data/animation'
+import useWhileInView from '../hooks/useWhileInView'
 import { useRef } from 'react'
 const WhyUs = () => {
   const ref = useRef(null)

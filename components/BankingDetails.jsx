@@ -9,7 +9,7 @@ import bannerShapeOneLight from '../public/images/banking/banner-shape-1.png'
 import bannerShapeOneDark from '../public/images/banking/banner-shape-1-dark.png'
 import bannerShapeTwoLight from '../public/images/banking/banner-shape-2.png'
 import bannerShapeTwoDark from '../public/images/banking/banner-shape-2-dark.png'
-import { fadeUpAnimation } from '@/data/animation'
+import { fadeUpAnimation } from '../data/animation'
 import { motion } from 'framer-motion'
 const BankingDetails = () => {
   return (

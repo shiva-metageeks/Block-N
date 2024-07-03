@@ -5,9 +5,9 @@ import imageOnlineValue from '../public/images/about/onlinePayment.png'
 import imageOnlineValueDark from '../public/images/about/onlinePayment-dark.png'
 import imageShape from '../public/images/about/onlinePayment-shape.png'
 import imageShapeDark from '../public/images/about/onlinePayment-shape-dark.png'
-import { fadeFromRightAnimation, fadeUpAnimation } from '@/data/animation'
+import { fadeFromRightAnimation, fadeUpAnimation } from '../data/animation'
 import { motion } from 'framer-motion'
-import useWhileInView from '@/hooks/useWhileInView'
+import useWhileInView from '../hooks/useWhileInView'
 import { useRef } from 'react'
 const AboutValue = () => {
   const ref = useRef(null)

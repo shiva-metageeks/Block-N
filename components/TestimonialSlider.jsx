@@ -1,5 +1,5 @@
 'use client'
-import { TestimonialData } from '@/data/data'
+import { TestimonialData } from '../data/data'
 import Image from 'next/image'
 import { Pagination } from 'swiper/modules'
 

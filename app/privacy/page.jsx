@@ -1,5 +1,5 @@
-import NewsLetter from '@/components/NewsLetter'
-import getMarkDownData from '@/utils/getMarkDownData'
+import NewsLetter from '../../components/NewsLetter'
+import getMarkDownData from '../../utils/getMarkDownData'
 import ReactMarkdown from 'react-markdown'
 
 const Privacy = () => {

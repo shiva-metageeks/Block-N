@@ -1,5 +1,5 @@
 'use client'
-import { fadeUpAnimation } from '@/data/animation'
+import { fadeUpAnimation } from '../../data/animation'
 import { motion } from 'framer-motion'
 
 const PageHero = ({ subtitle, title, paragraph }) => {

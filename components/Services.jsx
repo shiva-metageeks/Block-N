@@ -1,10 +1,10 @@
 'use client'
-import { fadeUpAnimation } from '@/data/animation'
+import { fadeUpAnimation } from '../data/animation'
 import { motion } from 'framer-motion'
-import { ServiceData } from '@/data/data'
+import { ServiceData } from '../data/data'
 import Image from 'next/image'
 import Link from 'next/link'
-import useWhileInView from '@/hooks/useWhileInView'
+import useWhileInView from '../hooks/useWhileInView'
 import { useRef } from 'react'
 const Services = ({ sectionDetails = true }) => {
   const ref = useRef(null)

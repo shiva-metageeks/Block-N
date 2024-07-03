@@ -1,9 +1,9 @@
 'use client'
 import React, { useState } from 'react'
-import { FAQData } from '@/data/data'
+import { FAQData } from '../data/data'
 import FaqItem from './FaqItem'
-import SVG from '@/components/FaqSvg/SVG1'
-import SVG2 from '@/components/FaqSvg/SVG2'
+import SVG from '../components/FaqSvg/SVG1'
+import SVG2 from '../components/FaqSvg/SVG2'
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null)

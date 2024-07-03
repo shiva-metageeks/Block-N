@@ -1,6 +1,6 @@
 'use client'
-import { fadeUpAnimation } from '@/data/animation'
-import useWhileInView from '@/hooks/useWhileInView'
+import { fadeUpAnimation } from '../data/animation'
+import useWhileInView from '../hooks/useWhileInView'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react'

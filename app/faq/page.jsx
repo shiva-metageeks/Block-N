@@ -1,12 +1,12 @@
 'use client'
-import FaqItem from '@/components/FaqItem'
-import PageHero from '@/components/heros/PageHero'
-import { FAQData } from '@/data/data'
+import FaqItem from '../../components/FaqItem'
+import PageHero from '../../components/heros/PageHero'
+import { FAQData } from '../../data/data'
 import { useEffect, useRef, useState } from 'react'
-import { fadeUpAnimation } from '@/data/animation'
+import { fadeUpAnimation } from '../../data/animation'
 
 import { motion } from 'framer-motion'
-import useWhileInView from '@/hooks/useWhileInView'
+import useWhileInView from '../../hooks/useWhileInView'
 const FaqPage = () => {
   const ref = useRef(null)
   const controlAnimation = useWhileInView(ref)

@@ -1,6 +1,6 @@
 'use client'
-import { menuData } from '@/data/data'
-import { cn } from '@/utils/cn'
+import { menuData } from '../../data/data'
+import { cn } from '../../utils/cn'
 import { faAngleDown, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'

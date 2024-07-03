@@ -1,8 +1,8 @@
 'use client'
-import { TestimonialData } from '@/data/data'
+import { TestimonialData } from '../data/data'
 import Image from 'next/image'
 import { RatingStars } from './Rating'
-import { fadeUpAnimation } from '@/data/animation'
+import { fadeUpAnimation } from '../data/animation'
 import { motion } from 'framer-motion'
 const TestimonialSingle = () => {
   return (

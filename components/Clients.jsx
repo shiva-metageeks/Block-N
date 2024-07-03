@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
-import { ClientData } from '@/data/data'
+import { ClientData } from '../data/data'
 import clientBorder from '../public/images/clients/client-border.svg'
 import clientBorderDark from '../public/images/clients/client-border-dark.svg'
 import Link from 'next/link'

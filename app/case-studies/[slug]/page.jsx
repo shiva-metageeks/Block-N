@@ -1,6 +1,6 @@
 'use client'
-import PageHero from '@/components/heros/PageHero'
-import { myPortableTextComponents, richTextStyles } from '@/app/blog/[slug]/page'
+import PageHero from '../../../components/heros/PageHero'
+import { myPortableTextComponents, richTextStyles } from '../../blog/[slug]/page'
 import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'

@@ -1,4 +1,4 @@
-import { client } from '../../../sanity/lib/client'
+import { client } from '../../sanity/lib/client'
 
 const getMetaData = async () => {
   const query = `*[_type == "metadata" && metadataFor=="services"]{

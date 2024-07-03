@@ -1,5 +1,5 @@
 'use client'
-import { DarkMode, LightMode } from '@/data/svgImages'
+import { DarkMode, LightMode } from '../data/svgImages'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 

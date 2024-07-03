@@ -1,17 +1,9 @@
 'use client'
-import MembersCounter from '@/components/MembersCounter'
-import NewsLetter from '@/components/NewsLetter'
-import Pricing from '@/components/Pricing'
-import ServiceContent from '@/components/ServiceContent'
-import { ServiceData } from '@/data/data'
-import { client } from '../../../sanity/lib/client'
+import FaqItem from '../../../components/FaqItem'
 import Image from 'next/image'
-import React, { useState, useEffect } from 'react'
-import { FAQData } from '@/data/data'
-import FaqItem from '@/components/FaqItem'
 import { usePathname } from 'next/navigation'
-import SVG from '@/components/FaqSvg/SVG1'
-import SVG2 from '@/components/FaqSvg/SVG2'
+import { useEffect, useState } from 'react'
+import { client } from '../../../sanity/lib/client'
 
 async function getService(slug) {
   const query = `
@@ -91,7 +83,7 @@ const ServiceDetails = () => {
   const pathName = usePathname()
   const slug = pathName.split('/')[2]
   const [service, setService] = useState(null)
-  const [generalFaq, setGeneralFaq] = useState(FAQData)
+  const [generalFaq, setGeneralFaq] = useState([])
 
   useEffect(() => {
     getService(slug).then((data) => {

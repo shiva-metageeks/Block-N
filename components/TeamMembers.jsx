@@ -1,11 +1,11 @@
 'use client'
-import { fadeUpAnimation } from '@/data/animation'
-import { teamData } from '@/data/data'
+import { fadeUpAnimation } from '../data/animation'
+import { teamData } from '../data/data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { motion } from 'framer-motion'
-import useWhileInView from '@/hooks/useWhileInView'
+import useWhileInView from '../hooks/useWhileInView'
 import { useRef } from 'react'
 const TeamMembers = () => {
   const ref = useRef(null)

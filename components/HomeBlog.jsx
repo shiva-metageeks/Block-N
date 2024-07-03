@@ -1,4 +1,4 @@
-import getMarkDownData from '@/utils/getMarkDownData'
+import getMarkDownData from '../utils/getMarkDownData'
 import Image from 'next/image'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'

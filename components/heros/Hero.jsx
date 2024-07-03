@@ -1,5 +1,5 @@
 'use client'
-import { fadeUpAnimation } from '@/data/animation'
+import { fadeUpAnimation } from '../../data/animation'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import heroChartDark from '../../public/images/hero/hero-chart-dark.png'

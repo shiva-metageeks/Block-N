@@ -3,8 +3,8 @@ import Image from 'next/image'
 import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 import CareerImage from '../public/images/about/career.png'
-import { fadeUpAnimation } from '@/data/animation'
-import useWhileInView from '@/hooks/useWhileInView'
+import { fadeUpAnimation } from '../data/animation'
+import useWhileInView from '../hooks/useWhileInView'
 const CareerDetails = () => {
   const ref = useRef(null)
   const controlAnimation = useWhileInView(ref)

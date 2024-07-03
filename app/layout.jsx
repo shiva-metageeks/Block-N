@@ -1,5 +1,5 @@
-import '@/scss/theme.scss'
-import PageLayout from '@/components/PageLayout'
+import '../scss/theme.scss'
+import PageLayout from '../components/PageLayout'
 import { Inter, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 
 const inter = Inter({

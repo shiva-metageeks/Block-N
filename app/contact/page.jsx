@@ -1,12 +1,12 @@
 'use client'
-import ContactInfo from '@/components/ContactInfo'
-import NewsLetter from '@/components/NewsLetter'
-import PageHero from '@/components/heros/PageHero'
-import { fadeUpAnimation } from '@/data/animation'
-import useWhileInView from '@/hooks/useWhileInView'
+import ContactInfo from '../../components/ContactInfo'
+import NewsLetter from '../../components/NewsLetter'
+import PageHero from '../../components/heros/PageHero'
+import { fadeUpAnimation } from '../../data/animation'
+import useWhileInView from '../../hooks/useWhileInView'
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
-import ContactForm from '@/components/ContactForm'
+import ContactForm from '../../components/ContactForm'
 import React from 'react'
 
 const page = () => {

@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { fadeUpAnimation } from '@/data/animation'
+import { fadeUpAnimation } from '../data/animation'
 import { motion } from 'framer-motion'
 const NotFound = () => {
   return (

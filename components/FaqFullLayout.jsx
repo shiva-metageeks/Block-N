@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 import FaqItem from './FaqItem'
-import { FAQData } from '@/data/data'
+import { FAQData } from '../data/data'
 
 const FaqFullLayout = () => {
   const [activeIndex, setActiveIndex] = useState(null)

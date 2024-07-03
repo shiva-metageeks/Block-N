@@ -1,5 +1,5 @@
-import NewsLetter from '@/components/NewsLetter'
-import GetMarkDownData from '@/utils/getMarkDownData'
+import NewsLetter from '../../components/NewsLetter'
+import GetMarkDownData from '../../utils/getMarkDownData'
 import ReactMarkdown from 'react-markdown'
 const TermsCondition = () => {
   const terms = GetMarkDownData('data/terms')

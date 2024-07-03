@@ -1,5 +1,5 @@
 'use client'
-import PageHero from '@/components/heros/PageHero'
+import PageHero from '../../components/heros/PageHero'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'

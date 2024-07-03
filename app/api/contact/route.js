@@ -1,4 +1,4 @@
-import { mailOptions, transporter } from '@/utils/nodemailer'
+import { mailOptions, transporter } from '../../../utils/nodemailer'
 import { NextResponse } from 'next/server'
 
 const CONTACT_MESSAGE_FIELDS = {

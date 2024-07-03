@@ -1,5 +1,5 @@
 'use client'
-import CounterAnimation from '@/utils/CounterAnimation'
+import CounterAnimation from '../utils/CounterAnimation'
 
 const MembersCounter = ({ border = true }) => {
   return (

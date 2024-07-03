@@ -1,5 +1,5 @@
 'use client'
-import { PricingData } from '@/data/data'
+import { PricingData } from '../data/data'
 import Link from 'next/link'
 import { useState } from 'react'
 

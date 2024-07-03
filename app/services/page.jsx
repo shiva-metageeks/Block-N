@@ -1,12 +1,12 @@
 'use client'
-import PageHero from '@/components/heros/PageHero'
-import { fadeUpAnimation } from '@/data/animation'
-import { ServiceDataIcons } from '@/data/data'
+import PageHero from '../../components/heros/PageHero'
+import { fadeUpAnimation } from '../../data/animation'
+import { ServiceDataIcons } from '../../data/data'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRef, useState, useEffect } from 'react'
-import useWhileInView from '@/hooks/useWhileInView'
+import useWhileInView from '../../hooks/useWhileInView'
 import { client } from '../../sanity/lib/client'
 
 async function getServices() {

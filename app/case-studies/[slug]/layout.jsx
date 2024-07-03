@@ -1,4 +1,4 @@
-import { client } from '../../../../sanity/lib/client'
+import { client } from '../../../sanity/lib/client'
 
 const getCaseStudy = async (slug) => {
   const query = `

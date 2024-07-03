@@ -6,7 +6,7 @@ import PaymentImageDevice from '../../public/images/payment/payment-hero-device.
 import PaymentImageDeviceDark from '../../public/images/payment/payment-hero-device-dark.png'
 import Image from 'next/image'
 import Link from 'next/link'
-import { fadeUpAnimation } from '@/data/animation'
+import { fadeUpAnimation } from '../../data/animation'
 import { motion } from 'framer-motion'
 const PaymentHero = () => {
   return (

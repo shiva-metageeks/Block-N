@@ -1,7 +1,7 @@
 'use client'
-import { fadeFromRightAnimation, fadeUpAnimation } from '@/data/animation'
+import { fadeFromRightAnimation, fadeUpAnimation } from '../data/animation'
 import { motion } from 'framer-motion'
-import useWhileInView from '@/hooks/useWhileInView'
+import useWhileInView from '../hooks/useWhileInView'
 import { useRef } from 'react'
 const AboutBanking = () => {
   const ref = useRef(null)

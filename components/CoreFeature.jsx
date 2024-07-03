@@ -1,5 +1,5 @@
 import React from 'react'
-import { CoreFeatures } from '@/data/data'
+import { CoreFeatures } from '../data/data'
 import Image from 'next/image'
 const CoreFeature = () => {
   return (
