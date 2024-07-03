@@ -17,6 +17,14 @@
   overflow: hidden;
   content: '';
 }
+@media (max-width: 769px) {
+  .rhc-banner {
+    height: 250px;
+  }
+  .rhc-banner::before {
+    bottom: 250px;
+  }
+}
 .overlay {
   position: relative;
   top: 0;
