@@ -17,7 +17,7 @@ const Footer = () => {
               height={29}
             />
             <p className="max-w-[350px] max-lg:mx-auto">{FooterData.footerText}</p>
-            <div className="mt-3 flex items-center justify-start gap-3">
+            <div className="mt-3 flex items-center justify-start gap-3 max-md:justify-center">
               <div
                 style={{ width: '150px' }}
                 className="clutch-widget block"
@@ -75,7 +75,7 @@ const Footer = () => {
             <p className="mb-3">
               <Link
                 href={`mailto:${FooterData.email}`}
-                className="relative inline-block overflow-hidden text-base capitalize text-paragraph before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full before:origin-right before:scale-x-0 before:bg-paragraph before:transition-transform before:duration-500  before:content-[''] before:hover:origin-left before:hover:scale-x-100 dark:text-white dark:before:bg-white">
+                className="relative inline-block overflow-hidden text-base text-paragraph before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full before:origin-right before:scale-x-0 before:bg-paragraph before:transition-transform before:duration-500  before:content-[''] before:hover:origin-left before:hover:scale-x-100 dark:text-white dark:before:bg-white">
                 {FooterData.email}
               </Link>
             </p>

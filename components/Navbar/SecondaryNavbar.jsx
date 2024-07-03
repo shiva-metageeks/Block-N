@@ -157,7 +157,7 @@ const SecondaryNavbar = ({ setPopup }) => {
               onClick={() => setInnerMobileMenu(!innerMobileMenu)}>
               <FontAwesomeIcon icon={faTimes} />
             </button>
-            <ul className="nav-list flex w-full max-w-[500px] flex-col gap-5 landscape:h-full">
+            <ul className="nav-list mt-[-200px] flex w-full max-w-[500px] flex-col gap-5 landscape:h-full">
               {menuData.menuContent.map((menuItem) => (
                 <li className={`${menuItem.path ? '' : 'group relative'}`} key={menuItem.id}>
                   {menuItem.path ? (
@@ -203,9 +203,9 @@ const SecondaryNavbar = ({ setPopup }) => {
               ))}
 
               <li>
-                <Link href="/request-demo" className="btn btn-navbar btn-sm">
+                <a href="#" onClick={() => setPopup(true)} className="btn btn-navbar btn-sm">
                   Get In Touch
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
